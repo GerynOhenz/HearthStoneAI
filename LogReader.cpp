@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <string>
 #include <assert.h>
+#include <thread>
 #include <windows.h>
+#include <thread>
 #include "LogReader.h"
 #include "PowerParser.h"
 

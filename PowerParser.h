@@ -4,6 +4,8 @@
 
 const int Command_Type_Sum=14;
 
+const int timelen=16;
+
 const std::string Command_Type[Command_Type_Sum]=
 {
 	"GameState.DebugPrintEntitiesChosen()",
@@ -22,41 +24,25 @@ const std::string Command_Type[Command_Type_Sum]=
 	"PowerTaskList.DebugPrintPower()",
 };
 
-struct time
+struct stime
 {
 	double hour, minute, second;
 
-	time()
-	{
-		hour=minute=second=-1;
-	}
+	stime();
 
-	time(std::string st)
-	{
-		hour=atof(st.substr(0, 2).c_str());
-		minute=atof(st.substr(3, 2).c_str());
-		second=atof(st.substr(6, 10).c_str());
-	}
+	stime(std::string st);
 
-	void print()
-	{
-		printf("%lf %lf %lf\n", hour, minute, second);
-	}
+	void print();
 };
 
 struct Power_Debug_Message
 {
-	time Debug_time;
+	stime Debug_time;
 	std::string GameState;
 	std::string tag;
 	int value;
 
-	Power_Debug_Message()
-	{
-		GameState="";
-		tag="";
-		value=-1;
-	}
+	Power_Debug_Message();
 };
 
 bool Pattern(std::string st);
